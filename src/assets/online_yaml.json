@@ -1,0 +1,24 @@
+﻿{
+  "parallelExecution": 1,
+  "timeout": 30000,
+  "apiExecutor": [
+    {
+      "reportTitle": "API Testing POSTMAN Collection folder structure.",
+      "env": "dev",
+      "virtualanSpecPath": "src/test/resources/postman/online",
+      "outputDir": "target/online",
+      "cucumblanProperties": {
+        "service.api": "https://petstore.swagger.io/v2",
+        "virtualan.data.load": "SwaggerPetstoreIdaithalamsamples.postman_collection.json;",
+        "virtualan.data.type": "POSTMAN",
+        "virtualan.data.heading": "Test processing online the petstore Postman collection."
+      },
+      "execution": "ALL",
+      "excludeProperties": {
+        "/pet": "id",
+        "/store/order": "id",
+        "/user": "message"
+      }
+    }
+  ]
+}

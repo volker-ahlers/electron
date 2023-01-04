@@ -1,0 +1,11 @@
+<p>files works!</p>
+<div class="container">
+    <div class="col-6">
+        <pre>{{ files | json }}</pre>
+    </div>
+    <div class="col-6">
+        <button (click)="setFileName()">testEmptySheet</button>
+       <button (click)="setFileName('folders')">folder</button>
+        <button (click)="setFileName('online')">online</button>
+    </div>
+</div>

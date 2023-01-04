@@ -1,0 +1,10 @@
+<div class="container p-5 text-center">
+   
+    <button class="btn btn-primary mb-3" (click)="increment()">Increment</button>
+
+    <div class="mb-3">Current Count: <strong>{{ count$ | async }}</strong></div>
+
+    <button class="btn btn-primary me-2" (click)="decrement()">Decrement</button>
+
+    <button class="btn btn-primary" (click)="reset()">Reset Counter</button>
+</div>
