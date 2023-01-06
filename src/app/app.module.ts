@@ -8,17 +8,21 @@ import { MyCounterComponent } from './my-counter/my-counter.component';
 import { counterReducer } from './counter.reducer';
 import { loginReducer } from './login.reducer';
 import { FilesComponent } from './files/files.component';
+import { FormularComponent } from './formular/formular.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyCounterComponent,
-    FilesComponent
+    FilesComponent,
+    FormularComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ count: counterReducer }),
     // StoreModule.forRoot({ cunt: counterReducer }),
     // StoreModule.forRoot({log: loginReducer})

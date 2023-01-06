@@ -1,0 +1,52 @@
+
+
+
+
+
+<div class="container">
+
+    <h2>Editor</h2>
+
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="yamlForm">
+<div class="mb-3">
+                <label class="form-label" for="first-name" class="form-label">First Name: </label>
+                <input id="first-name" type="text" formControlName="firstName">
+</div>
+<div class="mb-3">
+                <label class="form-label" for="last-name" class="form-label">Last Name: </label>
+                <input id="last-name" type="text" formControlName="lastName">
+            </div>
+        
+
+        <div formGroupName="address">
+            <h2>Address</h2>
+            <div class="mb-3">
+            <label class="form-label" for="street">Street: </label>
+            <input id="street" type="text" formControlName="street">
+            </div>
+            <div class="mb-3">
+            <label class="form-label" for="city">City: </label>
+            <input id="city" type="text" formControlName="city">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="state">State: </label>
+            <input id="state" type="text" formControlName="state">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="zip">Zip Code: </label>
+            <input id="zip" type="text" formControlName="zip">
+          </div>
+        </div>
+        <div class="col-6">
+            <button type="submit" [disabled]="!yamlForm.valid">Submit</button>
+        </div>
+    </form>
+</div>
+    </div>
+
+    <hr/>
+    <h6>Formular</h6>
+    <pre>{{ yamlForm.value | json}}</pre>
+</div>
