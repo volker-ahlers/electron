@@ -21,7 +21,7 @@ export class FilesComponent {
 
   machdas (filename: string){
     console.log(filename);
-    this.files = lastValueFrom(this.file.getHttp(filename));
+    this.files = this.file.getHttp(filename);
     console.log(this.files);
   }
 
@@ -34,6 +34,7 @@ export class FilesComponent {
     console.log(this.editor.nativeElement.textContent);
     console.log(this.editor.nativeElement.innerText);
     this.texttosend = this.editor.nativeElement.textContent;
+    this.file.postHttp(JSON.parse(this.texttosend));
   }
 }
 
