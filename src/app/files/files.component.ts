@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { RequestService } from '../request.service';
 
@@ -8,23 +8,32 @@ import { RequestService } from '../request.service';
   styleUrls: ['./files.component.less']
 })
 export class FilesComponent {
-
+  @ViewChild('editor') editor!:ElementRef;
  files: any;
+ texttosend: string = '';
+
  filename:string= '';
   constructor(public file: RequestService) {
-    this.filename = 'testEmptySheet';
+    this.filename = 'testEmptySheet_yaml.json';
     this.machdas(this.filename);
     
   }
 
-  async machdas (filename: string){
+  machdas (filename: string){
     console.log(filename);
-    this.files = await lastValueFrom(this.file.getHttp(filename));
+    this.files = lastValueFrom(this.file.getHttp(filename));
+    console.log(this.files);
   }
 
   setFileName(filename: string = this.filename){
     console.log(this.filename)
     this.machdas(filename);
+  }
+
+  save(){
+    console.log(this.editor.nativeElement.textContent);
+    console.log(this.editor.nativeElement.innerText);
+    this.texttosend = this.editor.nativeElement.textContent;
   }
 }
 

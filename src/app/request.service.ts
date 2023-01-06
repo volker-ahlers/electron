@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class RequestService {
-  localUrl: string = 'assets/xxx_yaml.json';
+  localUrl: string = 'assets/xxx';
 
   constructor(private httpClient: HttpClient) {}
 
