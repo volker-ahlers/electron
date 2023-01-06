@@ -14,7 +14,7 @@ export class FilesComponent {
 
  filename:string= '';
   constructor(public file: RequestService) {
-    this.filename = 'testEmptySheet_yaml.json';
+    this.filename = 'folders_yaml.json';
     this.machdas(this.filename);
     
   }
