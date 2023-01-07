@@ -1,52 +1,150 @@
+<div class="container">,
 
-
-
-
-
-<div class="container">
-
-    <h2>Editor</h2>
+    <strong>Editor</strong>
 
     <div class="row">
         <div class="col-12">
-            <form [formGroup]="yamlForm">
-<div class="mb-3">
-                <label class="form-label" for="first-name" class="form-label">First Name: </label>
-                <input id="first-name" type="text" formControlName="firstName">
-</div>
-<div class="mb-3">
-                <label class="form-label" for="last-name" class="form-label">Last Name: </label>
-                <input id="last-name" type="text" formControlName="lastName">
-            </div>
-        
+            <form [formGroup]="yamlForm" class="yamlForm" (ngSubmit)="submit()">
+                <div class="mb-3" [class.text-danger]="notValid('parallelExecution')">
+                    <label class="form-label" for="parallelExecution">parallelExecution: </label>
+                    <input id="parallelExecution" type="text" formControlName="parallelExecution">
+                    <small class="text-danger">{{errorText('parallelExecution')}}</small>
+                </div>
+                <div class="mb-3" [class.text-danger]="notValid('timeout')">
+                    <label class="form-label" for="timeout" class="form-label">timeout: </label>
+                    <input id="timeout" type="text" formControlName="timeout">
+                    <small class="text-danger">{{errorText('timeout')}}</small>
+                </div>
 
-        <div formGroupName="address">
-            <h2>Address</h2>
-            <div class="mb-3">
-            <label class="form-label" for="street">Street: </label>
-            <input id="street" type="text" formControlName="street">
-            </div>
-            <div class="mb-3">
-            <label class="form-label" for="city">City: </label>
-            <input id="city" type="text" formControlName="city">
+
+                <div formGroupName="apiExecutor">
+                    <strong>apiExecutor</strong>
+                    <div class="mb-3" [class.text-danger]="notValid('apiExecutor.reportTitle')">
+                        <label class="form-label" for="reportTitle">reportTitle: </label>
+                        <input id="reportTitle" type="text" formControlName="reportTitle">
+                        <small class="text-danger">{{errorText('reportTitle')}}</small>
+                    </div>
+                    <div class="mb-3" [class.text-danger]="notValid('apiExecutor.env')">
+                        <label class="form-label" for="env">env: </label>
+                        <input id="env" type="text" formControlName="env">
+                        <small class="text-danger">{{errorText('env')}}</small>
+                    </div>
+                    <div class="mb-3" [class.text-danger]="notValid('apiExecutor.virtualanSpecPath')">
+                        <label class="form-label" for="virtualanSpecPath">virtualanSpecPath: </label>
+                        <input id="virtualanSpecPath" type="text" formControlName="virtualanSpecPath">
+                        <small class="text-danger">{{errorText('virtualanSpecPath')}}</small>
+                    </div>
+                    <div class="mb-3" [class.text-danger]="notValid('apiExecutor.outputDir')">
+                        <label class="form-label" for="outputDir">outputDir: </label>
+                        <input id="outputDir" type="text" formControlName="outputDir">
+                        <small class="text-danger">{{errorText('outputDir')}}</small>
+                    </div>
+                    <div formGroupName="cucumblanProperties">
+                        <strong>apiExecutor</strong>
+                        <div class="mb-3" [class.text-danger]="notValid('apiExecutor.cucumblanProperties.service_api')">
+                            <label class="form-label" for="service_api">service.api: </label>
+                            <input id="service_api" type="text" formControlName="service_api">
+                            <small class="text-danger">{{errorText('service.api')}}</small>
+                        </div>
+                        <div class="mb-3"
+                            [class.text-danger]="notValid('apiExecutor.cucumblanProperties.virtualan_data_load')">
+                            <label class="form-label" for="virtualan_data_load">virtualan.data.load: </label>
+                            <input id="virtualan_data_load" type="text" formControlName="virtualan_data_load">
+                            <small class="text-danger">{{errorText('virtualan.data.load')}}</small>
+                        </div>
+                        <div class="mb-3"
+                            [class.text-danger]="notValid('apiExecutor.cucumblanProperties.virtualan_data_type')">
+                            <label class="form-label" for="virtualan_data_type">virtualan.data.type: </label>
+                            <input id="virtualan_data_type" type="text" formControlName="virtualan_data_type">
+                            <small class="text-danger">{{errorText('virtualan.data.type')}}</small>
+                        </div>
+                        <div class="mb-3"
+                            [class.text-danger]="notValid('apiExecutor.cucumblanProperties.virtualan_data_heading')">
+                            <label class="form-label" for="virtualan_data_heading">virtualan.data.heading: </label>
+                            <input id="virtualan_data_heading" type="text" formControlName="virtualan_data_heading">
+                            <small class="text-danger">{{errorText('virtualan.data.heading')}}</small>
+                        </div>
+                    </div>
+
+                    <div formGroupName="apiHeader">
+                        <strong>apiHeader</strong>
+                        <div formGroupName="headerList">
+                            <strong>headerList</strong>
+                            <div class="mb-3"
+                                [class.text-danger]="notValid('apiExecutor.apiHeader.headerList.X-API-KEY')">
+                                <label class="form-label" for="execution">X-API-KEY: </label>
+                                <input id="X-API-KEY" type="text" formControlName="X-API-KEY">
+                                <small class="text-danger">{{errorText('X-API-KEY')}}</small>
+                            </div>
+
+                            <div class="mb-3"
+                                [class.text-danger]="notValid('apiExecutor.apiHeader.headerList.X-API-Test1')">
+                                <label class="form-label" for="execution">X-API-Test1: </label>
+                                <input id="X-API-Test1" type="text" formControlName="X-API-Test1">
+                                <small class="text-danger">{{errorText('X-API-Test1')}}</small>
+                            </div>
+
+                            <div class="mb-3"
+                                [class.text-danger]="notValid('apiExecutor.apiHeader.headerList.X-API-Test2')">
+                                <label class="form-label" for="execution">X-API-Test2: </label>
+                                <input id="X-API-Test2" type="text" formControlName="X-API-Test2">
+                                <small class="text-danger">{{errorText('X-API-Test2')}}</small>
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3" [class.text-danger]="notValid('apiExecutor.apiHeader.overwrite')">
+                            <label class="form-label" for="overwrite">overwrite: </label>
+                            <input id="overwrite" type="checkbox" formControlName="overwrite">
+                            <small class="text-danger">{{errorText('overwrite')}}</small>
+                        </div>
+
+
+                    </div>
+
+                    <strong>execution</strong>
+                    <div class="mb-3" [class.text-danger]="notValid('apiExecutor.execution')">
+                        <label class="form-label" for="execution">execution: </label>
+                        <input id="execution" type="text" formControlName="execution">
+                        <small class="text-danger">{{errorText('execution')}}</small>
+                    </div>
+
+                    <strong>excludeProperties</strong>
+                    <div formGroupName="excludeProperties">
+                        <div class="mb-3" [class.text-danger]="notValid('apiExecutor.excludeProperties./pet')">
+                            <label class="form-label" for="/pet">/pet: </label>
+                            <input id="/pet" type="text" formControlName="/pet">
+                            <small class="text-danger">{{errorText('/pet')}}</small>
+                        </div>
+                        <div class="mb-3" [class.text-danger]="notValid('apiExecutor.excludeProperties./store/order')">
+                            <label class="form-label" for="/store/order">/store/order: </label>
+                            <input id="/store/order" type="text" formControlName="/store/order">
+                            <small class="text-danger">{{errorText('/store/order')}}</small>
+                        </div>
+                        <div class="mb-3" [class.text-danger]="notValid('apiExecutor.excludeProperties./user')">
+                            <label class="form-label" for="/user">/user: </label>
+                            <input id="/user" type="text" formControlName="/user">
+                            <small class="text-danger">{{errorText('/user')}}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <button class="btn btn-primary" type="submit"  >Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label class="form-label" for="state">State: </label>
-            <input id="state" type="text" formControlName="state">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="zip">Zip Code: </label>
-            <input id="zip" type="text" formControlName="zip">
-          </div>
-        </div>
-        <div class="col-6">
-            <button type="submit" [disabled]="!yamlForm.valid">Submit</button>
-        </div>
-    </form>
-</div>
     </div>
 
-    <hr/>
-    <h6>Formular</h6>
-    <pre>{{ yamlForm.value | json}}</pre>
+</div>
+
+<hr />
+<div class="row">
+    <div class="mb-5 col-6">
+        <button class="btn btn-light" type="button" (click)="toggleAdvancedView()">Show AdvancedView</button>
+    </div>
+    
+    <div class="mb-3 col-12">
+
+        <app-files *ngIf="!advancedView" [files]="yamlForm.value" [transform]="transForm" [originForm]="originForm"></app-files>
+    </div>
 </div>

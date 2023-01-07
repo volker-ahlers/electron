@@ -1,33 +1,38 @@
 export const yaml = {
-    "parallelExecution": 1,
-    "timeout": 30000,
+    "parallelExecution": 0,
+    "timeout": 0,
     "apiExecutor": [
       {
-        "reportTitle": "API Testing POSTMAN Collection folder structure.",
-        "env": "dev",
-        "virtualanSpecPath": "src/test/resources/postman/folders",
-        "outputDir": "target/folders",
+        "reportTitle": "",
+        "env": "",
+        "virtualanSpecPath": "",
+        "outputDir": "",
         "cucumblanProperties": {
-          "service.api": "https://live.virtualandemo.com/api",
-          "virtualan.data.load": "folders_postman.json;",
-          "virtualan.data.type": "POSTMAN",
-          "virtualan.data.heading": "Test processing multiple folder in Postman collection."
+          "service.api": "",
+          "virtualan.data.load": "",
+          "virtualan.data.type": "",
+          "virtualan.data.heading": ""
         },
         "apiHeader": {
           "headerList": [
             {
-              "X-API-KEY": "abc123"
+              "X-API-KEY": ""
             },
             {
-              "X-API-Test1": 123
+              "X-API-Test1": ""
             },
             {
-              "X-API-Test2": "test2"
+              "X-API-Test2": ""
             }
           ],
-          "overwrite": true
+          "overwrite": false
         },
-        "execution": "GENERATE"
+        "execution": "",
+        "excludeProperties": {
+          "/pet": "",
+          "/store/order": "",
+          "/user": ""
+        }
       }
     ]
   }

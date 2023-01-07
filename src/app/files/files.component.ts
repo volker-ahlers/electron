@@ -1,40 +1,31 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-files',
   templateUrl: './files.component.html',
-  styleUrls: ['./files.component.less']
+  styleUrls: ['./files.component.less'],
 })
 export class FilesComponent {
-  @ViewChild('editor') editor!:ElementRef;
- files: any;
- texttosend: string = '';
+  @ViewChild('editor') editor!: ElementRef;
+  @Input() files: any;
+  @Input() transform: any;
+  @Input() originForm: any;
+  texttosend: string = '';
 
- filename:string= '';
-  constructor(public file: RequestService) {
-    this.filename = 'folders_yaml.json';
-    this.machdas(this.filename);
-    
-  }
+  filename: string = '';
+  contenteditable: boolean = false;
+  constructor(public http: RequestService) {}
 
-  machdas (filename: string){
-    console.log(filename);
-    this.files = this.file.getHttp(filename);
-    console.log(this.files);
-  }
-
-  setFileName(filename: string = this.filename){
-    console.log(this.filename)
-    this.machdas(filename);
-  }
-
-  save(){
+  save() {
     console.log(this.editor.nativeElement.textContent);
     console.log(this.editor.nativeElement.innerText);
     this.texttosend = this.editor.nativeElement.textContent;
-    this.file.postHttp(JSON.parse(this.texttosend));
+    this.http.postHttp(JSON.parse(this.texttosend));
+  }
+
+  toggleEditable() {
+    this.contenteditable = !this.contenteditable; 
   }
 }
-

@@ -11,25 +11,16 @@ export class RequestService {
   postUrl: string = 'localhost:4200';
 
   constructor(private httpClient: HttpClient) {}
-
-  getHttp(filename: string): Observable<any> {
-    const localUrl = this.localUrl.replace('xxx', filename);
-    console.log(localUrl);
-    const params: HttpParams = new HttpParams()
-      .set('observe', 'body')
-      .set('Accept', 'application/json, text/javascript, */*');
-    return this.httpClient
-      .get<object>(localUrl, { withCredentials: true, params })
-      .pipe(retry(1), catchError(this.handleError));
-  }
+ 
 
   postHttp(files: string): void {
     console.log(files);
     const params: HttpParams = new HttpParams();
       // .set('observe', 'body')
       // .set('Accept', 'application/json, text/javascript, */*');
-      this.httpClient.post<any>(this.postUrl, files, { params }).subscribe(data => {
-        console.log(data);
+      this.httpClient.post<any>(this.postUrl, files, { params })
+      .pipe(retry(1), catchError(this.handleError)).subscribe((data:any) => {
+        
     });
   }
   handleError = (error: any) => {

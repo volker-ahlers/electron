@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+.ng-pristine.ng-invalid.ng-touched {
+    border-color: #dc3545;
+}
+
+.form-label, strong {
+    display: block;
+
+    &:first-letter {
+        text-transform: uppercase
+    }
+}
+
+.yamlForm {
+    small {
+        display: none;
+
+        &:first-letter {
+            text-transform: uppercase
+        }
+    }
+
+    .text-danger {
+        small {
+            display: block;
+        }
+    }
+}
