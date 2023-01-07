@@ -36,3 +36,6 @@ export const yaml = {
       }
     ]
   }
+
+  export const executions = ["ALL", "GENERATE", "EXECUTE"];
+  export const virtualanDataTypes = ["POSTMAN", "EXCEL", "OPENAPI"];
