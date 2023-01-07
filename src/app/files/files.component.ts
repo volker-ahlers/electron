@@ -16,6 +16,8 @@ export class FilesComponent {
 
   filename: string = '';
   contenteditable: boolean = false;
+  debug: boolean = false;
+
   constructor(public http: RequestService) {}
 
   save() {
@@ -27,5 +29,9 @@ export class FilesComponent {
 
   toggleEditable() {
     this.contenteditable = !this.contenteditable; 
+  }
+
+  toggleDebug(){
+    this.debug = !this.debug;
   }
 }

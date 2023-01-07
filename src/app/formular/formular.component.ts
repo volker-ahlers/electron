@@ -112,4 +112,8 @@ export class FormularComponent implements OnInit {
   toggleAdvancedView() {
     this.advancedView = !this.advancedView;
   }
+
+  toggleDebug(){
+    this.debug = !this.debug;
+  }
 }

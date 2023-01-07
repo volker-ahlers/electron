@@ -132,6 +132,9 @@
                     <button class="btn btn-primary" type="submit"  >Submit</button>
                 </div>
             </form>
+            <div class="mb-3 col-6">
+                <button class="btn btn-light" (click)="toggleDebug()">toggle debug</button>
+            </div>
         </div>
     </div>
 
@@ -142,9 +145,10 @@
     <div class="mb-5 col-6">
         <button class="btn btn-light" type="button" (click)="toggleAdvancedView()">Show AdvancedView</button>
     </div>
-    
     <div class="mb-3 col-12">
-
         <app-files *ngIf="!advancedView" [files]="yamlForm.value" [transform]="transForm" [originForm]="originForm"></app-files>
     </div>
+
+
 </div>
+
