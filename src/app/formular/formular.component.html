@@ -1,6 +1,6 @@
-<div class="container">,
+<div class="container">
 
-    <strong>Editor</strong>
+    <h3>Yaml-Editor</h3>
 
     <div class="row">
         <div class="col-12">
@@ -40,7 +40,7 @@
                         <small class="text-danger">{{errorText('outputDir')}}</small>
                     </div>
                     <div formGroupName="cucumblanProperties">
-                        <strong>apiExecutor</strong>
+                        <strong>cucumblanProperties</strong>
                         <div class="mb-3" [class.text-danger]="notValid('apiExecutor.cucumblanProperties.service_api')">
                             <label class="form-label" for="service_api">service.api: </label>
                             <input id="service_api" type="text" formControlName="service_api">
@@ -67,7 +67,7 @@
                     </div>
 
                     <div formGroupName="apiHeader">
-                        <strong>apiHeader</strong>
+                        <h4>apiHeader</h4>
                         <div formGroupName="headerList">
                             <strong>headerList</strong>
                             <div class="mb-3"
