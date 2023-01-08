@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { yaml } from '../constants/constants';
+import { executions, virtualanDataTypes, yaml } from '../constants/constants';
 import { copyObject } from '../constants/helpers';
 import { RequestService } from '../request.service';
 
@@ -13,6 +13,9 @@ export class FormularComponent implements OnInit {
   yamlForm: any;
   advancedView: boolean = false;
   transForm = copyObject(yaml);
+
+  executionsArray: Array<string> = executions;
+  virtualanDataTypesArray: Array<string> = virtualanDataTypes;
 
   debug: boolean = false;
   constructor(public http: RequestService) {}
@@ -116,3 +119,6 @@ export class FormularComponent implements OnInit {
     this.debug = !this.debug;
   }
 }
+
+//todo: execution: {ALL, GENERATE, EXECUTE}
+// todo: virtualan.data.type: {POSTMAN,EXCEL, OPENAPI}

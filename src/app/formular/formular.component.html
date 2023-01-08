@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <form [formGroup]="yamlForm" class="yamlForm" (ngSubmit)="submit()">
-                <div class="mb-3" [class.text-danger]="notValid('parallelExecution')">
+                <div class="mb-3 form-group" [class.text-danger]="notValid('parallelExecution')">
                     <label class="form-label" for="parallelExecution">parallelExecution: </label>
                     <input id="parallelExecution" type="text" formControlName="parallelExecution">
                     <small class="text-danger">{{errorText('parallelExecution')}}</small>
@@ -15,7 +15,6 @@
                     <input id="timeout" type="text" formControlName="timeout">
                     <small class="text-danger">{{errorText('timeout')}}</small>
                 </div>
-
 
                 <div formGroupName="apiExecutor">
                     <strong>apiExecutor</strong>
@@ -55,7 +54,12 @@
                         <div class="mb-3"
                             [class.text-danger]="notValid('apiExecutor.cucumblanProperties.virtualan_data_type')">
                             <label class="form-label" for="virtualan_data_type">virtualan.data.type: </label>
-                            <input id="virtualan_data_type" type="text" formControlName="virtualan_data_type">
+                            <select formControlName="virtualan_data_type">
+                                <option value=""></option>
+                                <option *ngFor="let virtualanDataType of virtualanDataTypesArray" [ngValue]="virtualanDataType">
+                                {{ virtualanDataType }}
+                                </option>
+                            </select>
                             <small class="text-danger">{{errorText('virtualan.data.type')}}</small>
                         </div>
                         <div class="mb-3"
@@ -90,7 +94,6 @@
                                 <input id="X-API-Test2" type="text" formControlName="X-API-Test2">
                                 <small class="text-danger">{{errorText('X-API-Test2')}}</small>
                             </div>
-
                         </div>
 
                         <div class="mb-3" [class.text-danger]="notValid('apiExecutor.apiHeader.overwrite')">
@@ -104,11 +107,14 @@
 
                     <strong>execution</strong>
                     <div class="mb-3" [class.text-danger]="notValid('apiExecutor.execution')">
-                        <label class="form-label" for="execution">execution: </label>
-                        <input id="execution" type="text" formControlName="execution">
-                        <small class="text-danger">{{errorText('execution')}}</small>
+                    <label class="form-label" for="execution">execution: </label>
+                    <select formControlName="execution">
+                        <option value=""></option>
+                        <option *ngFor="let execution of executionsArray" [ngValue]="execution">
+                        {{ execution }}
+                        </option>
+                    </select>
                     </div>
-
                     <strong>excludeProperties</strong>
                     <div formGroupName="excludeProperties">
                         <div class="mb-3" [class.text-danger]="notValid('apiExecutor.excludeProperties./pet')">
