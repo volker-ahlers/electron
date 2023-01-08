@@ -10,7 +10,7 @@ import { RequestService } from '../request.service';
 export class FilesComponent {
   @ViewChild('editor') editor!: ElementRef;
   @Input() files: any;
-  @Input() transform: any;
+  @Input() transformed: any;
   texttosend: string = '';
 
   filename: string = '';

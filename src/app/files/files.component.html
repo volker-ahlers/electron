@@ -1,23 +1,21 @@
 <div class="container">
 
-    <h2>Editor <span *ngIf="!contenteditable">fix</span><span *ngIf="contenteditable">editierbar</span></h2>
+    <h2>Editor <span *ngIf="!contenteditable">fixed</span><span *ngIf="contenteditable">editierbar</span></h2>
 
     <div class="row">
-        <div *ngIf="debug" class="col-8">
-            <strong>transform</strong>
-            <pre >{{ transform |  json }}</pre> 
-        </div>
-        <div class="col-8">
+        <div class="col-6">
             <strong>form</strong>
-            <pre *ngIf="contenteditable" #editor contenteditable="">{{ files |  json }}</pre>
-            <pre *ngIf="!contenteditable" #editor >{{ files |  json }}</pre>
+            <pre *ngIf="contenteditable" #editor contenteditable>{{ files | json }}</pre>
+            <pre *ngIf="!contenteditable" #editor>{{ files | json }}</pre>
         </div>
-        
-        <div class="col-4">
-            <button class="btn btn-primary mb-3" (click)="toggleEditable()">toggleEditable</button>       
+        <div class="col-6">
+            <strong>transformed</strong>
+            <pre *ngIf="contenteditable" #editor contenteditable>{{ transformed | json }}</pre>
+            <pre *ngIf="!contenteditable" #editor>{{ transformed | json }}</pre>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-primary mb-3" (click)="toggleEditable()">toggleEditable</button>
             <button class="btn btn-primary mb-3" (click)="save()">saveEditorContent</button>
         </div>
     </div>
-
-    <button class="btn btn-light" (click)="toggleDebug()">toggle debug</button>
 </div>

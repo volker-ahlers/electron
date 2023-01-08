@@ -7,12 +7,12 @@
             <form [formGroup]="yamlForm" class="yamlForm" (ngSubmit)="submit()">
                 <div class="mb-3 form-group" [class.text-danger]="notValid('parallelExecution')">
                     <label class="form-label" for="parallelExecution">parallelExecution: </label>
-                    <input id="parallelExecution" type="text" formControlName="parallelExecution">
+                    <input id="parallelExecution" type="number" formControlName="parallelExecution">
                     <small class="text-danger">{{errorText('parallelExecution')}}</small>
                 </div>
                 <div class="mb-3" [class.text-danger]="notValid('timeout')">
                     <label class="form-label" for="timeout" class="form-label">timeout: </label>
-                    <input id="timeout" type="text" formControlName="timeout">
+                    <input id="timeout" type="number" formControlName="timeout">
                     <small class="text-danger">{{errorText('timeout')}}</small>
                 </div>
 
@@ -138,9 +138,6 @@
                     <button class="btn btn-primary" type="submit"  >Submit</button>
                 </div>
             </form>
-            <div class="mb-3 col-6">
-                <button class="btn btn-light" (click)="toggleDebug()">toggle debug</button>
-            </div>
         </div>
     </div>
 
@@ -148,13 +145,8 @@
 
 <hr />
 <div class="row">
-    <div class="mb-5 col-6">
-        <button class="btn btn-light" type="button" (click)="toggleAdvancedView()">Show AdvancedView</button>
-    </div>
     <div class="mb-3 col-12">
-        <app-files *ngIf="!advancedView" [files]="yamlForm.value" [transform]="transForm"></app-files>
+        <app-files [files]="yamlForm.value" [transformed]="transformed"></app-files>
     </div>
-
-
 </div>
 
