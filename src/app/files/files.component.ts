@@ -11,7 +11,6 @@ export class FilesComponent {
   @ViewChild('editor') editor!: ElementRef;
   @Input() files: any;
   @Input() transform: any;
-  @Input() originForm: any;
   texttosend: string = '';
 
   filename: string = '';

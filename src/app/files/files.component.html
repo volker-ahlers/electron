@@ -7,10 +7,6 @@
             <strong>transform</strong>
             <pre >{{ transform |  json }}</pre> 
         </div>
-        <div *ngIf="debug" class="col-8">
-            <strong>originForm</strong>
-            <pre >{{ originForm |  json }}</pre> 
-        </div>
         <div class="col-8">
             <strong>form</strong>
             <pre *ngIf="contenteditable" #editor contenteditable="">{{ files |  json }}</pre>

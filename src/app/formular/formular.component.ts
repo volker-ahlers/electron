@@ -13,7 +13,6 @@ export class FormularComponent implements OnInit {
   yamlForm: any;
   advancedView: boolean = false;
   transForm = copyObject(yaml);
-  originForm = copyObject(yaml);
 
   debug: boolean = false;
   constructor(public http: RequestService) {}

@@ -72,21 +72,21 @@
                             <strong>headerList</strong>
                             <div class="mb-3"
                                 [class.text-danger]="notValid('apiExecutor.apiHeader.headerList.X-API-KEY')">
-                                <label class="form-label" for="execution">X-API-KEY: </label>
+                                <label class="form-label" for="X-API-KEY">X-API-KEY: </label>
                                 <input id="X-API-KEY" type="text" formControlName="X-API-KEY">
                                 <small class="text-danger">{{errorText('X-API-KEY')}}</small>
                             </div>
 
                             <div class="mb-3"
                                 [class.text-danger]="notValid('apiExecutor.apiHeader.headerList.X-API-Test1')">
-                                <label class="form-label" for="execution">X-API-Test1: </label>
+                                <label class="form-label" for="X-API-Test1">X-API-Test1: </label>
                                 <input id="X-API-Test1" type="text" formControlName="X-API-Test1">
                                 <small class="text-danger">{{errorText('X-API-Test1')}}</small>
                             </div>
 
                             <div class="mb-3"
                                 [class.text-danger]="notValid('apiExecutor.apiHeader.headerList.X-API-Test2')">
-                                <label class="form-label" for="execution">X-API-Test2: </label>
+                                <label class="form-label" for="X-API-Test2">X-API-Test2: </label>
                                 <input id="X-API-Test2" type="text" formControlName="X-API-Test2">
                                 <small class="text-danger">{{errorText('X-API-Test2')}}</small>
                             </div>
@@ -146,7 +146,7 @@
         <button class="btn btn-light" type="button" (click)="toggleAdvancedView()">Show AdvancedView</button>
     </div>
     <div class="mb-3 col-12">
-        <app-files *ngIf="!advancedView" [files]="yamlForm.value" [transform]="transForm" [originForm]="originForm"></app-files>
+        <app-files *ngIf="!advancedView" [files]="yamlForm.value" [transform]="transForm"></app-files>
     </div>
 
 
