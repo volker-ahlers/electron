@@ -11,17 +11,27 @@ export class RequestService {
   postUrl: string = 'localhost:4200';
 
   constructor(private httpClient: HttpClient) {}
- 
+
+  // postHttpx() {
+  //   var http = require('http');
+
+  //   http
+  //     .createServer(function (req: any, res: any) {
+  //       res.writeHead(200, { 'Content-Type': 'text/plain' });
+  //       res.end('Hello World!');
+  //     })
+  //     .listen(8080);
+  // }
 
   postHttp(files: string): void {
     console.log(files);
     const params: HttpParams = new HttpParams();
-      // .set('observe', 'body')
-      // .set('Accept', 'application/json, text/javascript, */*');
-      this.httpClient.post<any>(this.postUrl, files, { params })
-      .pipe(retry(1), catchError(this.handleError)).subscribe((data:any) => {
-        
-    });
+    // .set('observe', 'body')
+    // .set('Accept', 'application/json, text/javascript, */*');
+    this.httpClient
+      .post<any>(this.postUrl, files, { params })
+      .pipe(retry(1), catchError(this.handleError))
+      .subscribe((data: any) => {});
   }
   handleError = (error: any) => {
     let errorMessage = '';
