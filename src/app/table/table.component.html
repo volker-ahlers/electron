@@ -1,0 +1,32 @@
+<div class="container">
+
+    <h3>Table-Editor</h3>
+
+    <div class="rows">
+        <div class="col-12">
+            <form [formGroup]="tableForm" class="tableForm" (change)="changeTable()">
+                <div class="mb-3">
+                    <label class="form-label" for="rows">rows: {{ this.tableForm.get('rows').value }}</label>
+                    <input id="rows" type="range" formControlName="rows" min="{{rows }}" max="200">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="columns">columns: {{ this.tableForm.get('columns').value }}</label>
+                    <input id="columns" type="range" formControlName="columns" min="{{ columns }}" max="200">
+                </div>
+            </form>
+            <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
+            <button class="btn btn-secondary" [class.extended]="extended" type="button" (click)="toggleextend()">Go to <span>{{ extended? 'Responsive' : 'Static' }}</span>
+                View</button>
+                <button class="btn btn-secondary" type="button" (click)="toggleContentVisible()">Content Visible</button>
+        </div>
+    </div>
+
+    <hr />
+
+    <table #table [style.width]="tablewidth">
+        <tr *ngFor="let row of getRows(); let c = index">
+            <td contenteditable *ngFor="let row of getColumns(); let i = index"><span *ngIf="isContentVisible">{{ c + '/' + i }}</span></td>
+        </tr>
+    </table>
+
+</div>

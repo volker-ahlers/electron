@@ -144,7 +144,8 @@
 </div>
 
 <hr />
-<div class="row">
+<button class="btn btn-light" type="button" (click)="toggleEditorView()">Toggle Editor View</button>
+<div class="row" *ngIf="editorView">
     <div class="mb-3 col-12">
         <app-files [files]="yamlForm.value" [transformed]="transformed"></app-files>
     </div>

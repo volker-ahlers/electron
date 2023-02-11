@@ -1,0 +1,42 @@
+div.mb-3 {
+    display: inline;
+    margin-right: 1em;
+
+    label {
+        margin-right: .5em;
+    }
+}
+
+button {
+    margin-right: 5px;
+    
+    &.btn.btn-secondary {
+        color: black;
+        background-color: lightyellow;
+        background-color: #eee;
+        &.extended {
+            background-color: lightgreen;
+        }
+    }
+}
+table {
+    table-layout: fixed;
+    &.extended {
+        min-width: 5000px;
+    }
+
+    tr {
+
+        &:nth-child(even) {
+            background: #eee
+        }
+    }
+
+    td {
+        display: inline-block;
+        white-space: nowrap;
+        min-width: 90px;
+        border: 1px solid lightgrey;
+        padding: 2px;
+    }
+}

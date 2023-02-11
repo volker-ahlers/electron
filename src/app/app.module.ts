@@ -7,12 +7,14 @@ import { StoreModule } from '@ngrx/store';
 import { FilesComponent } from './files/files.component';
 import { FormularComponent } from './formular/formular.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilesComponent,
-    FormularComponent
+    FormularComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

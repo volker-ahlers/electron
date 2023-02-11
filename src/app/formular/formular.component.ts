@@ -16,6 +16,7 @@ export class FormularComponent implements OnInit {
   executionsArray: Array<string> = executions;
   virtualanDataTypesArray: Array<string> = virtualanDataTypes;
 
+  editorView: boolean = false;
   debug: boolean = false;
 
 
@@ -109,5 +110,9 @@ export class FormularComponent implements OnInit {
   errorText(name: string) {
     this.debug && console.log('name', name);
     return `${name} is reqired`;
+  }
+  
+  toggleEditorView() {
+    this.editorView = !this.editorView; 
   }
 }
